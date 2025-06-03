@@ -1,11 +1,6 @@
 metadata name = 'Multi-Agent Custom Automation Engine'
 metadata description = 'This module contains the resources required to deploy the Multi-Agent Custom Automation Engine solution accelerator for both Sandbox environments and WAF aligned environments.'
 
-@description('Feature Flag. Enable Production Deployment.')
-param enableProduction bool
-
-
-
 @description('Optional. The prefix to add in the default names given to all deployed Azure resources.')
 @maxLength(19)
 param solutionPrefix string = 'macae${uniqueString(deployer().objectId, deployer().tenantId, subscription().subscriptionId, resourceGroup().id)}'
@@ -313,7 +308,7 @@ module userAssignedIdentity 'br/public:avm/res/managed-identity/user-assigned-id
 // WAF recommendations for networking and connectivity: https://learn.microsoft.com/en-us/azure/well-architected/security/networking
 var networkSecurityGroupBackendEnabled = networkSecurityGroupBackendConfiguration.?enabled ?? true
 var networkSecurityGroupBackendResourceName = networkSecurityGroupBackendConfiguration.?name ?? 'nsg-backend-${solutionPrefix}'
-module networkSecurityGroupBackend 'br/public:avm/res/network/network-security-group:0.5.1' = if (enableProduction &&virtualNetworkEnabled && networkSecurityGroupBackendEnabled) {
+module networkSecurityGroupBackend 'br/public:avm/res/network/network-security-group:0.5.1' = if (virtualNetworkEnabled && networkSecurityGroupBackendEnabled) {
   name: take('avm.res.network.network-security-group.${networkSecurityGroupBackendResourceName}', 64)
   params: {
     name: networkSecurityGroupBackendResourceName
@@ -344,7 +339,7 @@ module networkSecurityGroupBackend 'br/public:avm/res/network/network-security-g
 
 var networkSecurityGroupContainersEnabled = networkSecurityGroupContainersConfiguration.?enabled ?? true
 var networkSecurityGroupContainersResourceName = networkSecurityGroupContainersConfiguration.?name ?? 'nsg-containers-${solutionPrefix}'
-module networkSecurityGroupContainers 'br/public:avm/res/network/network-security-group:0.5.1' = if (enableProduction && virtualNetworkEnabled && networkSecurityGroupContainersEnabled) {
+module networkSecurityGroupContainers 'br/public:avm/res/network/network-security-group:0.5.1' = if (virtualNetworkEnabled && networkSecurityGroupContainersEnabled) {
   name: take('avm.res.network.network-security-group.${networkSecurityGroupContainersResourceName}', 64)
   params: {
     name: networkSecurityGroupContainersResourceName
