@@ -4,7 +4,7 @@ param solutionPrefix = null //Type a string value to customize the prefix for yo
 param solutionLocation = readEnvironmentVariable('AZURE_LOCATION', 'swedencentral')
 param azureOpenAILocation = readEnvironmentVariable('AZURE_ENV_OPENAI_LOCATION', 'swedencentral')
 param logAnalyticsWorkspaceConfiguration = {
-  dataRetentionInDays: 30
+  dataRetentionInDays: 10
 }
 param applicationInsightsConfiguration = {
   retentionInDays: 30
