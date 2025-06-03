@@ -25,6 +25,8 @@ The solution leverages Azure OpenAI Service, Azure Container Apps, Azure Cosmos 
 |![image](./documentation/images/readme/macae-architecture.png)|
 |---|
 
+### Deploy as POC or as Production
+By leveraging the 'enableProduction' feature flag, you can now deploy your AI solution either as a POC into a dev environment, OR you can leverage the feature flag to deploy to a production location, including network isolation. 
 
 
 ### How to customize

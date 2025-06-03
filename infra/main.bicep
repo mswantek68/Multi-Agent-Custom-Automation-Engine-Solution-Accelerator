@@ -1,6 +1,11 @@
 metadata name = 'Multi-Agent Custom Automation Engine'
 metadata description = 'This module contains the resources required to deploy the Multi-Agent Custom Automation Engine solution accelerator for both Sandbox environments and WAF aligned environments.'
 
+@description('Feature Flag. Enable Production Deployment.')
+param enableProduction bool
+
+
+
 @description('Optional. The prefix to add in the default names given to all deployed Azure resources.')
 @maxLength(19)
 param solutionPrefix string = 'macae${uniqueString(deployer().objectId, deployer().tenantId, subscription().subscriptionId, resourceGroup().id)}'
