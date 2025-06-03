@@ -26,7 +26,7 @@ The solution leverages Azure OpenAI Service, Azure Container Apps, Azure Cosmos 
 |---|
 
 ### Deploy as POC or as Production
-By leveraging the 'enableProduction' feature flag, you can now deploy your AI solution either as a POC into a dev environment, OR you can leverage the feature flag to deploy to a production location, including network isolation. 
+You can choose to deploy your AI solution as either a proof of concept (POC) or a production-ready workload by configuring the `enableProduction` feature flag. By default, this flag is set to `false`, enabling rapid deployment to a development environment for testing and evaluation. When you set `enableProduction` to `true`, the deployment process provisions your AI application in a network-isolated, production-grade environment with enhanced scalability and security. This flexibility allows you to seamlessly transition from POC to production as your needs evolve.
 
 
 ### How to customize
