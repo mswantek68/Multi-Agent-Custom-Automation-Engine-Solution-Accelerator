@@ -19,3 +19,4 @@ param webServerFarmConfiguration = {
   skuCapacity: 1
   skuName: 'B2'
 }
+param isProductionDeployment // <--- Declare without value to prompt
