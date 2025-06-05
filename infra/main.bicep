@@ -1,9 +1,6 @@
 metadata name = 'Multi-Agent Custom Automation Engine'
 metadata description = 'This module contains the resources required to deploy the Multi-Agent Custom Automation Engine solution accelerator for both Sandbox environments and WAF aligned environments.'
 
-@description('Deploy to Production?')
-param isProductionDeployment bool
-
 @description('Optional. The prefix to add in the default names given to all deployed Azure resources.')
 @maxLength(19)
 param solutionPrefix string = 'macae${uniqueString(deployer().objectId, deployer().tenantId, subscription().subscriptionId, resourceGroup().id)}'
@@ -887,7 +884,7 @@ var mlPrivateDnsZones = {
   'privatelink.notebooks.azure.net': mlTargetSubResource
 }
 module privateDnsZonesAiFoundryWorkspaceHub 'br/public:avm/res/network/private-dns-zone:0.3.1' = [
-  for zone in objectKeys(mlPrivateDnsZones): if (isProductionDeployment &&virtualNetworkEnabled && aiFoundryAiHubEnabled) {
+  for zone in objectKeys(mlPrivateDnsZones): if (virtualNetworkEnabled && aiFoundryAiHubEnabled) {
     name: take('avm.res.network.private-dns-zone.ai-hub.${uniqueString(aiFoundryAiHubName,zone)}.${solutionPrefix}', 64)
     params: {
       name: zone
