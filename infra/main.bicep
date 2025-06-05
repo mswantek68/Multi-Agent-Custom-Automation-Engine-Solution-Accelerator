@@ -735,7 +735,7 @@ var aiFoundryAiServicesModelDeployment = {
   sku: {
     name: 'GlobalStandard'
     //Curently the capacity is set to 140 for opinanal performance. 
-    capacity: aiFoundryAiServicesConfiguration.?modelCapcity ?? 140
+    capacity: aiFoundryAiServicesConfiguration.?modelCapacity ?? 140
   }
   raiPolicyName: 'Microsoft.Default'
 }
