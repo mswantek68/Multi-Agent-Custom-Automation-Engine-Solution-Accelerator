@@ -887,7 +887,7 @@ var mlPrivateDnsZones = {
   'privatelink.notebooks.azure.net': mlTargetSubResource
 }
 module privateDnsZonesAiFoundryWorkspaceHub 'br/public:avm/res/network/private-dns-zone:0.3.1' = [
-  for zone in objectKeys(mlPrivateDnsZones): if (virtualNetworkEnabled && aiFoundryAiHubEnabled) {
+  for zone in objectKeys(mlPrivateDnsZones): if (isProductionDeployment &&virtualNetworkEnabled && aiFoundryAiHubEnabled) {
     name: take('avm.res.network.private-dns-zone.ai-hub.${uniqueString(aiFoundryAiHubName,zone)}.${solutionPrefix}', 64)
     params: {
       name: zone
