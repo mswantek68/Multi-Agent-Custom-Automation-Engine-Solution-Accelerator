@@ -26,7 +26,7 @@ The solution leverages Azure OpenAI Service, Azure Container Apps, Azure Cosmos 
 |---|
 
 ### Deploy as POC or as Production
-You can choose to deploy your AI solution as either a proof of concept (POC) or a production-ready workload by configuring the `enableProduction` feature flag. By default, this flag is set to `false`, enabling rapid deployment to a development environment for testing and evaluation. When you set `enableProduction` to `true`, the deployment process provisions your AI application in a network-isolated, production-grade environment with enhanced scalability and security. This flexibility allows you to seamlessly transition from POC to production as your needs evolve.
+You can choose to deploy your AI solution as either a proof of concept (POC) or a production-ready workload by configuring the `virtualNetworkConfiguration` feature flag. By default, this flag is set to `false` in the /workspaces/Multi-Agent-Custom-Automation-Engine-Solution-Accelerator/infra/main.bicepparam file, enabling rapid deployment to a development environment for testing and evaluation. When you set `virtualNetworkConfiguration` to `true`, the deployment process provisions your AI application in a network-isolated, production-grade environment with enhanced scalability and security. This flexibility allows you to seamlessly transition from POC to production as your needs evolve. These steps are performed by a CI/CD workflow that will copy over key parameters and deploy a new infrastructure environment, as well as deploy your application to production slots in your app service.
 
 
 ### How to customize
