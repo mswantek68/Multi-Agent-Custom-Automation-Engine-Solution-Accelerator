@@ -4,5 +4,9 @@ param solutionPrefix = null //Type a string value to customize the prefix for yo
 param solutionLocation = readEnvironmentVariable('AZURE_LOCATION', 'swedencentral')
 param azureOpenAILocation = readEnvironmentVariable('AZURE_ENV_OPENAI_LOCATION', 'swedencentral')
 param virtualNetworkConfiguration = {
-  enabled: false
+  enabled: true
+}
+param virtualMachineConfiguration = {
+  adminUsername: 'adminuser'
+  adminPassword: 'P@ssw0rd1234'
 }
